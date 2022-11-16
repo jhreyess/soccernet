@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Template from './components/Template';
+import App from './components/App';
 
 import Home from './routes/Home';
 import Live from './routes/Live';
@@ -14,7 +14,7 @@ import Bets from './routes/Bets';
 import NotFound from './routes/NotFound';
 
 const router = createBrowserRouter([
-  { path: "/", element: <Template />, 
+  { path: "/", element: <App />,
     children: [
       { element: <Home />, index: true }, // Default
       { path: "live", element: <Live /> },
