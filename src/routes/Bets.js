@@ -1,9 +1,22 @@
-import { Fragment } from "react";
+import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
+import Text from "../components/Text";
+import Filter from "../components/utils/Filter";
 
 export default function Bets(){
     return (
-        <Fragment>
-            <h1>Hello from Bets!</h1>
-        </Fragment>
+        <Section>
+            <LayoutView>
+                <PageHeaderView>
+                    <div>
+                        <Text level={2} bold>Predicciones</Text>
+                        <Text level={3} secondary bold={false}>Liga Mx</Text>
+                    </div>
+                    <Filter />
+                </PageHeaderView>
+                <ContentView>
+                    
+                </ContentView>
+            </LayoutView>
+        </Section>
     );
 }

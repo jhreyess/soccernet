@@ -3,15 +3,16 @@ import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Nav = styled.nav`
-    transition: all 0.3s ease-in;
+    transition: height 0.3s ease-in;
+    z-index: 1;
     ${({mobile}) => 
         mobile && css`
             position: absolute;
             top: 3.5em;
             left: 0;
             width: 100%;
-            background-color: ${props => props.theme.light ? "#FFFFFF" : "#000000" };
-            height: ${props => props.open ? "calc(100vh - 3.5em)" : "0px" };
+            background-color: ${props => props.theme.main };
+            height: ${props => props.isOpen ? "calc(100vh - 3.5em)" : "0px" };
             overflow-y: auto;
         `
     }
@@ -42,7 +43,7 @@ const Nav = styled.nav`
 
 export default function Navmenu({isMobile, isOpen}) {
     return (
-        <Nav mobile={isMobile} open={isOpen}>
+        <Nav mobile={isMobile} isOpen={isOpen}>
             <ul>
                 {isMobile
                     ? <li><NavLink to="/">Inicio</NavLink></li>

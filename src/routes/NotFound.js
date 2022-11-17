@@ -1,9 +1,10 @@
 import { Fragment } from "react";
+import Text from "../components/Text";
 
 export default function NotFound(){
     return (
         <Fragment>
-            <h1>404 NOT FOUND</h1>
+           <Text level={1} bold>404 NOT FOUND</Text> 
         </Fragment>
     )
 }

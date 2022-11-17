@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { LightModeProvider, ThemeProvider } from "./theme/ThemeProvider"
 import { GlobalStyles } from "./theme/GlobalStyles";
 
-import Header from "./Header";
+import NavigationLayout from "./layouts/NavigationLayout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHouse, faList, faMagnifyingGlass, faStopwatch } from "@fortawesome/free-solid-svg-icons"
@@ -14,7 +14,7 @@ export default function App(){
         <LightModeProvider>
             <ThemeProvider>
                 <GlobalStyles />
-                <Header />
+                <NavigationLayout />
                 <Outlet />
             </ThemeProvider>
         </LightModeProvider>

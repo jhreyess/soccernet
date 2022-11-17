@@ -8,7 +8,7 @@ export const lightTheme = {
     cardLightBackground: "#FCFDFE",
     cardDarkBackground: "#F4F4F4",
     modalBg: "#E2E4E9",
-    light: true
+    main: "#FFFFFF"
 }
 
 export const darkTheme = {
@@ -21,5 +21,5 @@ export const darkTheme = {
     cardLightBackground: "#383B47",
     cardDarkBackground: "#242A42",
     modalBg: "#333333",
-    light: false
+    main: "#000000"
 }

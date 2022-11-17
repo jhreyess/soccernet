@@ -10,6 +10,7 @@ const handleBoldText = bold => {
 }
 
 const TextView = styled.div`
+    margin: 0;
     color: ${(props) => props.isSecondary ? props.theme.textSecondary : "inherit"};
     font-weight: ${(props) => handleBoldText(props.isBold)};
 `;
