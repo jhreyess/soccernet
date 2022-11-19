@@ -4,6 +4,28 @@ import Filter from "../components/utils/Filter";
 import MatchCard from "../components/layouts/MatchCard";
 
 export default function Live(){
+
+    const exampleData = {
+        fixture: {
+            status: {
+                elapsed: 45
+            }
+        },
+        teams: {
+            home: {
+                name: "Real Kings",
+                logo: "https://media.api-sports.io/football/teams/10566.png"
+            },
+            away: {
+                name: "Sekhukhune United",
+                logo: "https://media.api-sports.io/football/teams/15537.png"
+            }
+        },
+        goals: {
+            home: 0,
+            away: 0
+        }
+    };
     
     return (
         <Section>
@@ -21,16 +43,35 @@ export default function Live(){
                     <MatchCard 
                         header 
                         title="Jornada 1" 
-                        icon={"clock"} 
-                        iconInfo="82'" 
+                        icon={"clock"}
+                        iconInfo={exampleData.fixture.status.elapsed}
                         actionable
+                        hasScore
+                        home={exampleData.teams.home}
+                        away={exampleData.teams.away}
+                        goals={exampleData.goals}
                     />
                     <MatchCard 
                         header 
                         title="Jornada 1" 
-                        icon={"clock"} 
-                        iconInfo="82'" 
+                        icon={"clock"}
+                        iconInfo={exampleData.fixture.status.elapsed}
                         actionable
+                        hasScore
+                        home={exampleData.teams.home}
+                        away={exampleData.teams.away}
+                        goals={exampleData.goals}
+                    />
+                    <MatchCard 
+                        header 
+                        title="Jornada 1" 
+                        icon={"clock"}
+                        iconInfo={exampleData.fixture.status.elapsed}
+                        actionable
+                        hasScore
+                        home={exampleData.teams.home}
+                        away={exampleData.teams.away}
+                        goals={exampleData.goals}
                     />
                 </ContentView>
             </LayoutView>
