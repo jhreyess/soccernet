@@ -7,7 +7,7 @@ export const lightTheme = {
     cardBorder: "#BFC8D9",
     cardLightBackground: "#FCFDFE",
     cardDarkBackground: "#F4F4F4",
-    modalBg: "#E2E4E9",
+    shadow: "#E2E4E9",
     main: "#FFFFFF"
 }
 
@@ -20,6 +20,6 @@ export const darkTheme = {
     cardBorder: "#626672",
     cardLightBackground: "#383B47",
     cardDarkBackground: "#242A42",
-    modalBg: "#333333",
+    shadow: "#333333",
     main: "#000000"
 }
