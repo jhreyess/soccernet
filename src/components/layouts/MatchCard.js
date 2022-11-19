@@ -3,22 +3,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Text from "../utils/Text";
 import Chevron from "../utils/Chevron";
 
-const StyledCard = styled.div`
-    flex-basis: 100%;
+const StyledCard = styled.article`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     background-color: ${(props) => props.theme.cardBackground};
-    border: 1px solid ${(props) => props.theme.cardBorder};
-    border-radius: 10px;
     padding: 0.75em;
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
+    &:not(:last-child):after {
+        content: "";
+        width: 95%;
+        margin-top: 1em;
+        height: 1px;
+        background-color: ${(props) => props.theme.cardBorder};
+    }
+    @media(min-width: 768px){
+        border-radius: 10px;
+        border: 1px solid ${(props) => props.theme.cardBorder};
+        &:not(:last-child):after {
+            content: unset;
+        }
+    }
 `;
 
 const Header = styled.div`
     align-self: stretch;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     > p {
         &:first-child {
             float: left;
@@ -33,22 +44,26 @@ const Header = styled.div`
 `;
 
 const Teams = styled.div`
+    flex-grow: 1;
+    text-align: center;
     display: flex;
     align-items: center;
-    text-align: center;
     align-self: stretch;
-    margin-top: 1em;
     img {
-        width: 5em;
-        height: 5em;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
     > div {
         flex: 1;
         &:nth-child(2) { 
             flex: 0 0 23%;
         }
+        .img-wrapper {
+            height: 4em;
+        }
     }
-`
+`;
 
 export default function Card(props) {
     const theme = useTheme()
@@ -66,7 +81,7 @@ export default function Card(props) {
             }
             <Teams>
                 <div>
-                    <img alt={props.home.name} src={props.home.logo}></img>
+                    <div className="img-wrapper"><img alt={props.home.name} src={props.home.logo}></img></div>
                     <Text level={5}>{props.home.name}</Text>
                 </div>
                 <div>
@@ -75,7 +90,7 @@ export default function Card(props) {
                     </Text>
                 </div>
                 <div>
-                    <img alt={props.away.name}src={props.away.logo}></img>
+                    <div className="img-wrapper"><img alt={props.away.name}src={props.away.logo}></img></div>
                     <Text level={5}>{props.away.name}</Text>
                 </div>
             </Teams>

@@ -30,15 +30,10 @@ export default function NavigationLayout() {
     const [ isMenuOpen, openMenu ] = useState(false);
 
     const [width, setWidth] = useState(window.innerWidth);
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
-    }
+    const handleWindowSizeChange = () => setWidth(window.innerWidth);
 
     useEffect(() => {
         window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        }
     }, []);
     
     const isMobile = width <= 768;

@@ -24,7 +24,14 @@ export const PageHeaderView = styled.div`
 `;
 
 export const ContentView = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+    display: grid;
+    box-shadow: 0 4px 25px #cdcbcb40;
+    @media(min-width: 768px){
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1em;
+        box-shadow: unset;
+    }
+    @media(min-width: 1024px){
+        grid-template-columns: repeat(4,1fr);
+    }
 `;

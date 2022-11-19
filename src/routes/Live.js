@@ -11,6 +11,13 @@ export default function Live(){
                 elapsed: 45
             }
         },
+        league: {
+            name: "1st Division",
+            country: "South-Africa",
+            logo:"https://media.api-sports.io/football/leagues/289.png",
+            flag:"https://media.api-sports.io/flags/za.svg",
+            season: 2020
+        },
         teams: {
             home: {
                 name: "Real Kings",
@@ -34,7 +41,7 @@ export default function Live(){
                     <div>
                         <div>
                             <Text level={2} bold>Partidos en curso</Text>
-                            <Text level={3} secondary bold={false}>Liga Mx</Text>
+                            <Text level={3} secondary bold={false}>{exampleData.league.name}</Text>
                         </div>
                         <Filter />
                     </div>
