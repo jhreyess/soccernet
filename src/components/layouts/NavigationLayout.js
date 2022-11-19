@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useToggleLightMode } from "../theme/ThemeProvider";
-import NavMenu from "../NavMenu";
+import NavMenu from "./NavMenu";
 import Logo from "../../assets/Logo.svg";
 import LogoDark from "../../assets/LogoDark.svg";
 import Hamburger from "../utils/Hamburger";

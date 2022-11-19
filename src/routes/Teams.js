@@ -1,5 +1,5 @@
 import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
-import Text from "../components/Text";
+import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
 import Searchbar from "../components/utils/Searchbar";
 

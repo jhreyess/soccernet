@@ -25,4 +25,6 @@ export const PageHeaderView = styled.div`
 
 export const ContentView = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 1em;
 `;

@@ -1,8 +1,10 @@
 import { Section, PageHeaderView, ContentView, LayoutView } from "../components/layouts/Wrappers";
-import Text from "../components/Text";
+import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
+import MatchCard from "../components/layouts/MatchCard";
 
 export default function Live(){
+    
     return (
         <Section>
             <LayoutView>
@@ -16,7 +18,20 @@ export default function Live(){
                     </div>
                 </PageHeaderView>
                 <ContentView>
-                    <Text level={3} secondary bold={false}>Liga Mx</Text>
+                    <MatchCard 
+                        header 
+                        title="Jornada 1" 
+                        icon={"clock"} 
+                        iconInfo="82'" 
+                        actionable
+                    />
+                    <MatchCard 
+                        header 
+                        title="Jornada 1" 
+                        icon={"clock"} 
+                        iconInfo="82'" 
+                        actionable
+                    />
                 </ContentView>
             </LayoutView>
         </Section>

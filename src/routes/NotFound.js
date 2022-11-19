@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Text from "../components/Text";
+import Text from "../components/utils/Text";
 
 export default function NotFound(){
     return (
