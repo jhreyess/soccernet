@@ -40,7 +40,7 @@ const StyledCard = styled.article`
             height: 100%;
             ${({decorate}) => 
                 decorate && css`
-                    padding: 0 4px;
+                    padding: 0.5em;
                     position: relative;
                     box-sizing: border-box;  
                 `
@@ -51,12 +51,11 @@ const StyledCard = styled.article`
                 &::before { 
                     content: "";
                     width: 100%;
-                    height: 80%;
+                    height: 100%;
                     position: absolute;
                     left: 0;
-                    bottom: -8px;
-                    border-radius: 8px 8px 0 0;
-                    background-color: ${(props) => props.theme.primary};
+                    border-radius: 8px;
+                    background-color: ${(props) => props.theme.cardLightBackground };
                 }
             `
         }

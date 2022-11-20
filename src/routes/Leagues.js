@@ -13,14 +13,19 @@ export default function Leagues(){
                 logo:"https://media.api-sports.io/football/leagues/39.png"
             },
             {
-                name:"Championship",
+                name:"Liga MX",
                 type:"League",
-                logo:"https://media.api-sports.io/football/leagues/40.png",
+                logo:"https://media.api-sports.io/football/leagues/262.png"
             },
             {
-                name:"EFL Trophy",
+                name:"Ascenso MX",
+                type:"League",
+                logo:"https://media.api-sports.io/football/leagues/263.png",
+            },
+            {
+                name:"Copa MX",
                 type:"Cup",
-                logo:"https://media.api-sports.io/football/leagues/46.png"
+                logo:"https://media.api-sports.io/football/leagues/264.png"
             },
         ]
     }
@@ -39,22 +44,24 @@ export default function Leagues(){
                 </PageHeaderView>
                 <ContentView>
                     <ListCard 
-                        vertical
                         decorate
                         image={exampleData.response[0].logo}
                         title={exampleData.response[0].name}
                     />
                     <ListCard 
-                        vertical
                         decorate
                         image={exampleData.response[1].logo}
                         title={exampleData.response[1].name}
                     />
                     <ListCard 
-                        vertical
                         decorate
                         image={exampleData.response[2].logo}
                         title={exampleData.response[2].name}
+                    />
+                    <ListCard 
+                        decorate
+                        image={exampleData.response[3].logo}
+                        title={exampleData.response[3].name}
                     />
                 </ContentView>
             </LayoutView>
