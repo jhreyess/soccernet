@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const MenuToggle = styled.div`
     display: inline-block;
     padding: 0.5em;
+    transition: transform 200ms ease-in-out;
+    ${({isOpen}) => 
+        isOpen && css`
+        transform: rotate(180deg);
+    `} 
     > span { 
         border-radius: 4px;
         display: inline-block;
@@ -20,15 +25,14 @@ const MenuToggle = styled.div`
     }
 `;
 
-export default function Chevron(props) {
+export default function Chevron({isOpen, onClick}) {
     const handleClick = () => {
-        if(props.onClick){
-            props.onClick();
-            
+        if(onClick){
+            onClick();
         }
     }
     return (
-        <MenuToggle onClick={handleClick}>
+        <MenuToggle isOpen={isOpen} onClick={handleClick}>
             <span></span>
             <span></span>
         </MenuToggle> 

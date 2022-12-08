@@ -2,6 +2,7 @@ import styled, { useTheme } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Text from "../utils/Text";
 import Chevron from "../utils/Chevron";
+import { useState } from "react";
 
 const StyledCard = styled.article`
     display: flex;
@@ -67,6 +68,7 @@ const Teams = styled.div`
 
 export default function Card(props) {
     const theme = useTheme()
+    const [isOpen, setOpen] = useState(false)
 
     return (
         <StyledCard>
@@ -94,7 +96,8 @@ export default function Card(props) {
                     <Text level={5}>{props.away.name}</Text>
                 </div>
             </Teams>
-            { props.actionable && <Chevron /> }
+            { isOpen && props.children}
+            { props.actionable && <Chevron isOpen={isOpen} onClick={() => setOpen(prev => !prev)}/> }
         </StyledCard>
     )
 }
