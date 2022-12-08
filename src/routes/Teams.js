@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
 import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
@@ -33,6 +35,7 @@ export default function Teams(){
             }
         ]
     }
+    const [team, setTeam] = useState({});
     return (
         <Section>
             <LayoutView>
@@ -47,23 +50,25 @@ export default function Teams(){
                     <Searchbar placeholder="Nombre del equipo" />
                 </PageHeaderView>
                 <ContentView>
-                    <ListCard 
-                        vertical
-                        image={exampleData.teams[0].logo}
-                        title={exampleData.teams[0].name}
-                    />
-                    <ListCard 
-                        vertical
-                        image={exampleData.teams[1].logo}
-                        title={exampleData.teams[1].name}
-                    />
-                    <ListCard 
-                        vertical
-                        image={exampleData.teams[2].logo}
-                        title={exampleData.teams[2].name}
-                    />
+                    {exampleData.teams.length ? 
+                        exampleData.teams.map(team => (
+                            <ListCard
+                                key={team.name} 
+                                vertical
+                                image={team.logo}
+                                title={team.name}
+                            />
+                        )
+                    ) : (
+                        <Text level={2} bold>No teams to show...</Text>
+                    )}
                 </ContentView>
+                <Outlet context={team} />
             </LayoutView>
         </Section>
     );
+}
+
+export function useTeam(){
+    return useOutletContext();
 }
