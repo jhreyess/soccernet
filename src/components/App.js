@@ -7,6 +7,7 @@ import NavigationLayout from "./layouts/NavigationLayout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHouse, faList, faMagnifyingGlass, faClock } from "@fortawesome/free-solid-svg-icons"
+import { Section, LayoutView } from './layouts/Wrappers';
 library.add(faHouse, faList, faMagnifyingGlass, faClock);
 
 export default function App(){
@@ -15,7 +16,11 @@ export default function App(){
             <ThemeProvider>
                 <GlobalStyles />
                 <NavigationLayout />
-                <Outlet />
+                <Section>
+                    <LayoutView>
+                        <Outlet />
+                    </LayoutView>
+                </Section>
             </ThemeProvider>
         </LightModeProvider>
     )

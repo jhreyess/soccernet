@@ -1,7 +1,8 @@
-import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
+import { PageHeaderView, ContentView } from "../components/layouts/Wrappers";
 import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
 import MatchCard from "../components/layouts/MatchCard";
+import { Fragment } from "react";
 
 export default function Bets(){
 
@@ -26,24 +27,22 @@ export default function Bets(){
     };
 
     return (
-        <Section>
-            <LayoutView>
-                <PageHeaderView>
+        <Fragment>
+            <PageHeaderView>
+                <div>
                     <div>
-                        <div>
-                            <Text level={2} bold>Predicciones</Text>
-                        </div>
-                        <Filter />
+                        <Text level={2} bold>Predicciones</Text>
                     </div>
-                </PageHeaderView>
-                <ContentView>
-                    <MatchCard 
-                        actionable
-                        home={exampleData.teams.home}
-                        away={exampleData.teams.away}
-                    />
-                </ContentView>
-            </LayoutView>
-        </Section>
+                    <Filter />
+                </div>
+            </PageHeaderView>
+            <ContentView>
+                <MatchCard 
+                    actionable
+                    home={exampleData.teams.home}
+                    away={exampleData.teams.away}
+                />
+            </ContentView>
+        </Fragment>
     );
 }

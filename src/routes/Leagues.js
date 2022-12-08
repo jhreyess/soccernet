@@ -1,8 +1,9 @@
-import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
+import { PageHeaderView, ContentView } from "../components/layouts/Wrappers";
 import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
 import Searchbar from "../components/utils/Searchbar";
 import ListCard from "../components/layouts/ListCard";
+import { Fragment } from "react";
 
 export default function Leagues(){
     const exampleData = {
@@ -30,41 +31,30 @@ export default function Leagues(){
         ]
     }
     return (
-        <Section>
-            <LayoutView>
-                <PageHeaderView>
+        <Fragment>
+            <PageHeaderView>
+                <div>
                     <div>
-                        <div>
-                            <Text level={2} bold>Ligas nacionales</Text>
-                            <Text level={3} secondary bold={false}>Liga de Inglaterra</Text>
-                        </div>
-                        <Filter />
+                        <Text level={2} bold>Ligas nacionales</Text>
+                        <Text level={3} secondary bold={false}>Liga de Inglaterra</Text>
                     </div>
-                    <Searchbar placeholder="Nombre de la liga" />
-                </PageHeaderView>
-                <ContentView>
-                    <ListCard 
-                        decorate
-                        image={exampleData.response[0].logo}
-                        title={exampleData.response[0].name}
-                    />
-                    <ListCard 
-                        decorate
-                        image={exampleData.response[1].logo}
-                        title={exampleData.response[1].name}
-                    />
-                    <ListCard 
-                        decorate
-                        image={exampleData.response[2].logo}
-                        title={exampleData.response[2].name}
-                    />
-                    <ListCard 
-                        decorate
-                        image={exampleData.response[3].logo}
-                        title={exampleData.response[3].name}
-                    />
-                </ContentView>
-            </LayoutView>
-        </Section>
+                    <Filter />
+                </div>
+                <Searchbar placeholder="Nombre de la liga" />
+            </PageHeaderView>
+            <ContentView>
+                {exampleData.response.length ? 
+                    exampleData.response.map(league => (
+                        <ListCard 
+                            decorate
+                            image={league.logo}
+                            title={league.name}
+                        />
+                    )
+                ) : (
+                    <Text level={2} bold>No se han encontrado datos...</Text>
+                )}
+            </ContentView>
+        </Fragment>
     );
 }

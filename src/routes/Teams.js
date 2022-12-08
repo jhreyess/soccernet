@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Outlet, useOutletContext } from "react-router-dom";
-import { Section, PageHeaderView, LayoutView, ContentView } from "../components/layouts/Wrappers";
+import { PageHeaderView, ContentView } from "../components/layouts/Wrappers";
 import Text from "../components/utils/Text";
 import Filter from "../components/utils/Filter";
 import Searchbar from "../components/utils/Searchbar";
@@ -37,35 +37,35 @@ export default function Teams(){
     }
     const [team, setTeam] = useState({});
     return (
-        <Section>
-            <LayoutView>
-                <PageHeaderView>
+        <Fragment>
+            <PageHeaderView>
+                <div>
                     <div>
-                        <div>
-                            <Text level={2} bold>Equipos</Text>
-                            <Text level={3} secondary bold={false}>Premiere League</Text>
-                        </div>
-                        <Filter />
+                        <Text level={2} bold>Equipos</Text>
+                        <Text level={3} secondary bold={false}>Premiere League</Text>
                     </div>
-                    <Searchbar placeholder="Nombre del equipo" />
-                </PageHeaderView>
-                <ContentView>
-                    {exampleData.teams.length ? 
-                        exampleData.teams.map(team => (
-                            <ListCard
-                                key={team.name} 
-                                vertical
-                                image={team.logo}
-                                title={team.name}
-                            />
-                        )
-                    ) : (
-                        <Text level={2} bold>No teams to show...</Text>
-                    )}
-                </ContentView>
-                <Outlet context={team} />
-            </LayoutView>
-        </Section>
+                    <Filter />
+                </div>
+                <Searchbar placeholder="Nombre del equipo" />
+            </PageHeaderView>
+            <ContentView>
+                {exampleData.teams.length ? 
+                    exampleData.teams.map(team => (
+                        <ListCard
+                            key={team.name} 
+                            vertical
+                            image={team.logo}
+                            title={team.name}
+                            to={team.name}
+                            onClick={() => setTeam(team)}
+                        />
+                    )
+                ) : (
+                    <Text level={2} bold>No teams to show...</Text>
+                )}
+            </ContentView>
+            <Outlet context={team} />
+        </Fragment>
     );
 }
 
