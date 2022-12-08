@@ -31,19 +31,26 @@ const Nav = styled.nav`
         ${({mobile}) => 
             mobile && css`
             margin: 0;
-            padding: 1em 2em;
         `} 
     }
     > ul li a {
         text-decoration: none;   
         font-weight: 700;
         color: inherit;
+        ${({mobile}) => 
+            mobile && css`
+            display: block;
+            padding: 1em 2em;
+        `} 
     }
 `;
 
-export default function Navmenu({isMobile, isOpen}) {
+export default function Navmenu({isMobile, isOpen, onClick}) {
+    const handleClick = () => {
+        if(onClick) onClick();
+    }
     return (
-        <Nav mobile={isMobile} isOpen={isOpen}>
+        <Nav mobile={isMobile} isOpen={isOpen} onClick={handleClick}>
             <ul>
                 {isMobile
                     ? <li><NavLink to="/">Inicio</NavLink></li>

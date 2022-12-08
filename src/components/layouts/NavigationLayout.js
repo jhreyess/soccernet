@@ -42,7 +42,11 @@ export default function NavigationLayout() {
         <Wrapper>
             <Branding src={isLightMode ? Logo : LogoDark} alt="logo" />
             <Navbar>
-                <NavMenu isMobile={isMobile} isOpen={isMenuOpen} />
+                <NavMenu 
+                    isMobile={isMobile} 
+                    isOpen={isMenuOpen} 
+                    onClick={() => {openMenu(prev => !prev)}} 
+                />
                 <ThemeToggler isOn={isLightMode} onClick={toggleLightMode} />
                 { isMobile && <Hamburger onClick={() => {openMenu(prev => !prev)}} /> }
             </Navbar>
